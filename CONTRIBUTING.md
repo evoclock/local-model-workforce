@@ -1,14 +1,8 @@
-# Contributing
+# Contribution policy
 
-The repository does not yet accept external contributions.
+This is an author-maintained personal system and research record. It does not
+accept external contributions, pull requests, generated training data or
+unsolicited implementation work.
 
-Future contributions must:
-
-- include task-specific tests;
-- preserve role and authority boundaries;
-- avoid unrelated architecture;
-- document provenance and licences; and
-- pass the release-tree validator.
-
-Generated training examples cannot enter a corpus from prose alone. Each
-implementation or no-mutation outcome must be executable and reviewed.
+Public issues can report a reproducible documentation or source defect when
+issue tracking is enabled. An issue does not grant implementation authority.

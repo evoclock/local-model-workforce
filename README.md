@@ -4,6 +4,9 @@ Local Model Workforce is an evidence-led design for local agentic software
 work. It separates deliberate planning from bounded implementation and
 independent review.
 
+This is an author-maintained personal system and research record. The
+repository does not accept external contributions.
+
 1. A **Planner** agrees the outcome, scope, authority and acceptance criteria.
 2. An **Implementer** executes a typed contract through approved tools.
 3. Deterministic services enforce authority and return observed receipts.

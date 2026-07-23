@@ -4,13 +4,10 @@
 
 The system uses portable roles instead of fixed model names.
 
-```text
-User
-  ↓
-Planner → typed contract → Implementer
-  ↑                          ↓
-Reviewer ← artifacts and receipts ← mediated tools
-```
+![Role workflow and control boundaries](diagrams/02_architecture_and_controls.png)
+
+[D2 source](diagrams/02_architecture_and_controls.d2) ·
+[SVG](diagrams/02_architecture_and_controls.svg)
 
 The Planner can answer directly, clarify the request, deny unsafe work or
 record a missing capability. It dispatches only when the task has a declared

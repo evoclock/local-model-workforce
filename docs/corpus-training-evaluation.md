@@ -4,15 +4,10 @@
 
 The training unit is an executable causal family, not a prompt paraphrase.
 
-```text
-grounded task or fixture
-→ failing parent state
-→ typed Planner contract
-→ bounded implementation or justified no-mutation result
-→ deterministic execution
-→ receipt
-→ Reviewer verdict or focused correction
-```
+![Executable evidence path](diagrams/03_executable_evidence_path.png)
+
+[D2 source](diagrams/03_executable_evidence_path.d2) ·
+[SVG](diagrams/03_executable_evidence_path.svg)
 
 An implementation family needs:
 
@@ -75,12 +70,16 @@ No training recipe or result is released in this scaffold.
 Evaluation uses family-disjoint frozen tasks in isolated environments. It
 scores the actual deliverable, not rubric recitation.
 
-Useful comparisons hold the task, tools and evaluator constant while changing:
+The primary comparison holds the task, tools and evaluator constant while
+changing:
 
-- the untouched model with no repository instruction file;
-- the untouched model with `AGENTS.md` or `CLAUDE.md`;
+- the untouched base model;
 - the fine-tuned model; and
 - the complete mediated system.
+
+An experiment can add a repository-instruction condition when it tests a
+specific claim about advisory instructions. That condition is not part of the
+normal operating workflow.
 
 Results remain provisional until the harness, environment, inputs and result
 manifests reproduce independently.

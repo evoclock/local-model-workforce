@@ -47,7 +47,8 @@ Add a recipe or result only when the release includes:
 ## Planned sequence
 
 1. Release a small synthetic executable example set and its validators.
-2. Reproduce an Implementer full fine-tune and frozen evaluation.
+2. Reproduce an Implementer full fine-tune and frozen evaluation, then release
+   the pinned recipe and result record.
 3. Add the Planner and Reviewer adaptation and routing evaluation.
 4. Implement and test the mediated runtime.
 5. Run the complete controlled comparison.

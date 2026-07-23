@@ -49,7 +49,9 @@ Each document has one scope:
 | [Limitations and evidence status](docs/limitations-and-evidence.md) | Current claims, missing evidence and release conditions |
 
 The README is the public index. The four documents do not override each other.
-Recipes and result reports will be added only with their runnable artifacts.
+The first training recipe will be released with the completed reproducible
+Implementer fine-tune and evaluation. Later recipes and result reports will be
+added only with their runnable artifacts.
 
 ## Control principle
 

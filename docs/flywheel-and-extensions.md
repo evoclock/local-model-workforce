@@ -42,14 +42,44 @@ is verified and admitted.
 A specialist module adds domain capability without weakening the shared role
 and security contracts.
 
-Each module starts with a curriculum that records methodological choices,
-failure modes, accepted evidence and evaluation oracles. Domain vocabulary
-alone is not a curriculum. Conflicting methodological preferences must not be
-mixed without an explicit routing rule.
+Each module starts with methodological preferences. The preferences define:
 
-Candidate areas include software engineering, data science, machine learning,
-AI systems, genomics, bioinformatics, phylogenetics, population genetics and
-mathematical models of biological systems.
+- methods to prefer, avoid or use only under stated conditions;
+- evidence and reproducibility requirements;
+- metrics and visual standards;
+- common failure modes and invalid shortcuts;
+- operating constraints and tool boundaries;
+- acceptance or escalation criteria; and
+- executable evaluation oracles.
+
+The curriculum converts those choices into capabilities. Executable families
+then cover materially different states, implementations, denials, corrections
+and reviews. A family-disjoint evaluation tests whether the model applies the
+method to unfamiliar tasks.
+
+Broad domain labels are not sufficient. Base models already contain substantial
+general software, data-science, machine-learning and AI knowledge. A module
+should target distinctive methodology and operating practice, such as:
+
+- **software delivery**: prior-art checks, bounded implementation, testing,
+  Definition of Done, reproducibility, security and proportional design;
+- **MLOps**: portable artifacts, lineage, promotion, rollback, monitoring and
+  environment drift;
+- **model risk**: data and label drift, bias, calibration, uncertainty, subgroup
+  performance and tail behaviour;
+- **risk and fraud**: temporal validation, leakage, severe class imbalance,
+  asymmetric cost, delayed labels and investigator capacity;
+- **AI systems**: RAG and GraphRAG evaluation, retrieval routing, provenance,
+  prompt injection, agentic-tool evaluation and deployment trade-offs; and
+- **decision systems**: contextual bandits, offline evaluation, safe exploration,
+  reward design and policy monitoring.
+
+Scientific modules follow the same method. Genomics, bioinformatics,
+phylogenetics, population genetics and biological modelling need explicit
+scientific assumptions, mathematical checks and domain-valid evidence.
+
+We do not mix conflicting methodological preferences without an explicit routing
+rule.
 
 ## Probability telemetry
 

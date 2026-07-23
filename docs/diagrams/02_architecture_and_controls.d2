@@ -1,0 +1,41 @@
+# Public architecture diagram. Uses the shared Local Model Workforce palette.
+direction: down
+style.fill: "#18191a"
+
+classes: {
+  posture: { style: { fill: "#5c564f"; stroke: "#ee9b69"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  evidence: { style: { fill: "#383431"; stroke: "#79c39e"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  control: { style: { fill: "#4a4540"; stroke: "#e77843"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  role: { style: { fill: "#383431"; stroke: "#ead1b5"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+}
+
+title: "ROLE WORKFLOW AND CONTROL BOUNDARIES" { class: posture; style.font-size: 28; width: 760 }
+user: "USER\nDiscuss the goal, constraints and required outcome" { class: role; width: 700 }
+planner: "PLANNER\nReason · clarify · scope · persist decisions\nroute only when the contract is ready" { class: role; width: 700 }
+contract: "TYPED IMPLEMENTATION CONTRACT\nBounded paths · commands · authority\nacceptance checks · stop conditions" { class: control; width: 700 }
+implementer: "IMPLEMENTER\nPerform bounded implementation\nstop on missing authority or capability" { class: role; width: 700 }
+tools: "DETERMINISTIC MEDIATION\nValidate · execute · isolate · sanitise\ncheckpoint · test · record receipts" { class: control; width: 700 }
+evidence: "CURRENT ARTIFACTS AND RECEIPTS\nObserved changes · tests · hashes · failures" { class: evidence; width: 700 }
+reviewer: "REVIEWER\nCheck evidence independently\naccept · correct · replan · deny · escalate" { class: role; width: 700 }
+result: "USER-FACING RESULT\nOutcome · material reasons · risks\nblockers · decisions · required actions" { class: evidence; width: 700 }
+
+control_layers: {
+  label: "THREE COMPLEMENTARY CONTROL LAYERS"
+  direction: down
+  style: { fill: "#242220"; stroke: "#5c564f"; stroke-width: 3; border-radius: 16; font-color: "#ead1b5"; font-size: 23; bold: true }
+  advisory: "ADVISORY\nRepository instructions\nlocal context and editable preferences" { class: posture; width: 620 }
+  learned: "LEARNED\nFine-tuned role behaviour\nrouting, judgement and response defaults" { class: role; width: 620 }
+  deterministic: "DETERMINISTIC\nMCP · hooks · schemas · sandboxes\nauthority, execution and evidence" { class: control; width: 620 }
+  advisory -> learned: { style.stroke: "#ee9b69"; style.stroke-width: 4 }
+  learned -> deterministic: { style.stroke: "#e77843"; style.stroke-width: 4 }
+}
+
+title -> user: { style.opacity: 0 }
+user -> planner: { style.stroke: "#ead1b5"; style.stroke-width: 4 }
+planner -> contract: { style.stroke: "#ee9b69"; style.stroke-width: 4 }
+contract -> implementer: { style.stroke: "#e77843"; style.stroke-width: 4 }
+implementer -> tools: { style.stroke: "#ead1b5"; style.stroke-width: 4 }
+tools -> evidence: { style.stroke: "#79c39e"; style.stroke-width: 4 }
+evidence -> reviewer: { style.stroke: "#79c39e"; style.stroke-width: 4 }
+reviewer -> result: { style.stroke: "#ead1b5"; style.stroke-width: 4 }
+result -> control_layers.advisory: { style.opacity: 0 }

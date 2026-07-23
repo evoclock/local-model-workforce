@@ -1,0 +1,29 @@
+# Public corpus diagram. Uses the shared Local Model Workforce palette.
+direction: down
+style.fill: "#18191a"
+
+classes: {
+  posture: { style: { fill: "#5c564f"; stroke: "#ee9b69"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  evidence: { style: { fill: "#383431"; stroke: "#79c39e"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  control: { style: { fill: "#4a4540"; stroke: "#e77843"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  role: { style: { fill: "#383431"; stroke: "#ead1b5"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+}
+
+title: "EXECUTABLE EVIDENCE PATH" { class: posture; style.font-size: 29; width: 740 }
+source: "GROUNDED TASK OR PURPOSE-BUILT FIXTURE\nKnown requirement · bounded repository state\nrecorded provenance" { class: posture; width: 700 }
+parent: "FAILING PARENT STATE\nFails for the intended reason\nnot because the environment is broken" { class: evidence; width: 700 }
+dispatch: "PLANNER CONTRACT\nRequired outcome · granted authority\nacceptance checks · stop conditions" { class: role; width: 700 }
+implementation: "IMPLEMENTER RESULT\nAccepted patch · justified no-mutation\nor bounded correction after a real failure" { class: role; width: 700 }
+execution: "DETERMINISTIC EXECUTION\nRun approved commands and task-specific oracles\npreserve exact outputs and hashes" { class: control; width: 700 }
+receipt: "HASH-BOUND RECEIPT\nObserved status · artifacts · tests · failure state" { class: evidence; width: 700 }
+review: "INDEPENDENT REVIEW\nAccept · request focused correction\nor reject weak evidence" { class: role; width: 700 }
+admission: "ADMISSION AND FAMILY-DISJOINT SPLIT\nCheck privacy · lineage · diversity · leakage\nassign the complete family to one split" { class: control; width: 700 }
+
+title -> source: { style.opacity: 0 }
+source -> parent: { style.stroke: "#ee9b69"; style.stroke-width: 4 }
+parent -> dispatch: { style.stroke: "#79c39e"; style.stroke-width: 4 }
+dispatch -> implementation: { style.stroke: "#ead1b5"; style.stroke-width: 4 }
+implementation -> execution: { style.stroke: "#e77843"; style.stroke-width: 4 }
+execution -> receipt: { style.stroke: "#79c39e"; style.stroke-width: 4 }
+receipt -> review: { style.stroke: "#79c39e"; style.stroke-width: 4 }
+review -> admission: { style.stroke: "#e77843"; style.stroke-width: 4 }

@@ -56,6 +56,25 @@ alter role semantics, family splits, accepted outcomes or evaluation oracles.
 
 No training recipe or result is released in this scaffold.
 
+## First recipe provenance
+
+The first Implementer run uses the
+[DGX Spark Unsloth Lossless Speedup](https://github.com/albond/DGX_Spark_Unsloth_Lossless_Speedup)
+recipe as its upstream baseline.
+
+The released derivative recipe must include:
+
+- the upstream author, repository, licence and exact commit;
+- the unmodified upstream procedure;
+- a machine-readable list of local changes;
+- the reason for each change;
+- the changed files and their hashes;
+- a comparison with the upstream baseline where applicable; and
+- measured effects, failures and limitations.
+
+Do not present an upstream capability as project-authored work. Do not hide a
+local modification inside a copied recipe.
+
 ## Evaluation levels
 
 1. **Implementer:** contract adherence, scope, tool selection, implementation

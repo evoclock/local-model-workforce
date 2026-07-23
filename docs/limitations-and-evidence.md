@@ -58,3 +58,19 @@ Add a recipe or result only when the release includes:
 
 The sequence can change when evidence requires it. Planned work must remain
 labelled as planned.
+
+## Model targets
+
+| Role | Method | Current target status |
+|---|---|---|
+| Implementer | Full fine-tune | Qwen3.5-4B-Base is the immediate target |
+| Implementer | Full fine-tune | NVIDIA Nemotron 3 Nano 4B BF16 is an admitted candidate |
+| Implementer | Full fine-tune | Granite 4.0 H Tiny Base is optional |
+| Implementer | Full fine-tune | Gemma 3 4B pre-trained is optional and not yet available in the local model store |
+| Planner/Reviewer | LoRA | Qwen3.6-35B-A3B is an admitted candidate |
+| Planner/Reviewer | LoRA | NVIDIA Nemotron 3 Nano 30B-A3B Base BF16 is an admitted candidate |
+
+Other 4B–7B Implementers and 27B–35B Planner/Reviewer models require the same
+base-checkpoint, licence, training-stack, resource and frozen-evaluation gates.
+A model family does not become a target only because it has a suitable
+parameter count.

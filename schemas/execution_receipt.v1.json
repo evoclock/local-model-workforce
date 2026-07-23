@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "execution_receipt.v1.json",
+  "title": "Deterministic execution receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["command_id", "status", "exit_code", "artifact_hashes"],
+  "properties": {
+    "command_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["passed", "failed", "denied", "timed_out", "not_run"]},
+    "exit_code": {"type": ["integer", "null"]},
+    "artifact_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+    "reason_codes": {"type": "array", "items": {"type": "string"}}
+  }
+}

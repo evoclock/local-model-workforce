@@ -1,0 +1,30 @@
+# Public/demo overview: no private paths, hostnames, revisions or internal gate IDs.
+direction: down
+style.fill: "#18191a"
+
+classes: {
+  posture: { style: { fill: "#5c564f"; stroke: "#ee9b69"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  evidence: { style: { fill: "#383431"; stroke: "#79c39e"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  control: { style: { fill: "#4a4540"; stroke: "#e77843"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+  role: { style: { fill: "#383431"; stroke: "#ead1b5"; stroke-width: 4; border-radius: 14; font-color: "#ead1b5"; font-size: 22; bold: true; shadow: true } }
+}
+
+title: "LOCAL MODEL WORKFORCE" { class: posture; style.font-size: 29; width: 700 }
+motivation: "THE OPERATING MODEL\nReason and plan with a capable local model\ndelegate bounded execution to cheaper Implementers\nreview evidence and keep the project moving" { class: role; width: 700 }
+define: "1 · DEFINE ROLES AND OUTCOMES\nPlanner/Reviewer · Implementer · mediated tools\npreferences · authority · safety · evidence" { class: posture; width: 650 }
+build: "2 · BUILD EXECUTABLE TRAINING EVIDENCE\nReal tasks + purpose-built fixtures\nparent failure → accepted implementation → review" { class: evidence; width: 650 }
+qualify: "3 · QUALIFY AND FREEZE\nClean reproduction · independent review\nfamily-disjoint splits · frozen evaluation" { class: control; width: 650 }
+train: "4 · TRAIN ROLE MODELS\nImplementer learns bounded execution\nPlanner/Reviewer learns routing and evidence review" { class: role; width: 650 }
+evaluate: "5 · RUN CONTROLLED COMPARISONS\nBase · repository instructions · tuned · governed\nquality · safety · task success · cost" { class: evidence; width: 650 }
+operate: "6 · OPERATE THROUGH MEDIATED TOOLS\nTyped contract · bounded authority\napproved actions · receipts · independent review" { class: role; width: 650 }
+improve: "7 · IMPROVE FROM REAL EVIDENCE\nAttribute failures · author grounded corrections\nre-run gates · retrain · promote or reject" { class: control; width: 650 }
+
+title -> motivation: { style.opacity: 0 }
+motivation -> define: { style.stroke: "#ead1b5"; style.stroke-width: 4 }
+define -> build: { style.stroke: "#ee9b69"; style.stroke-width: 4 }
+build -> qualify: { style.stroke: "#79c39e"; style.stroke-width: 4 }
+qualify -> train: { style.stroke: "#e77843"; style.stroke-width: 4 }
+train -> evaluate: { style.stroke: "#ead1b5"; style.stroke-width: 4 }
+evaluate -> operate: { style.stroke: "#79c39e"; style.stroke-width: 4 }
+operate -> improve: { style.stroke: "#ead1b5"; style.stroke-width: 4 }
+improve -> build: { style.stroke: "#e77843"; style.stroke-width: 4 }

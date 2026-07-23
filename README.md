@@ -1,5 +1,13 @@
 # Local Model Workforce
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![NVIDIA DGX Spark](https://img.shields.io/badge/NVIDIA-DGX%20Spark-76B900?style=flat-square&logo=nvidia&logoColor=white)
+![Full fine-tune](https://img.shields.io/badge/training-full%20fine--tune-e77843?style=flat-square)
+![LoRA](https://img.shields.io/badge/training-LoRA-ee9b69?style=flat-square)
+[![AGPL-3.0](https://img.shields.io/badge/licence-AGPL--3.0-0f6e69?style=flat-square)](LICENSE)
+
 Local Model Workforce is an evidence-led design for local agentic software
 work. It separates deliberate planning from bounded implementation and
 independent review.
@@ -17,21 +25,6 @@ implementation to a cheaper local model. The system persists plans, changes,
 tests and decisions outside conversation context.
 
 ![Local Model Workforce overview](docs/diagrams/00_workforce_overview.png)
-
-## Core stack
-
-![Python](https://img.shields.io/badge/Python-383431?style=flat-square&logo=python&logoColor=79c39e)
-![Rust](https://img.shields.io/badge/Rust-383431?style=flat-square&logo=rust&logoColor=ee9b69)
-![TypeScript](https://img.shields.io/badge/TypeScript-383431?style=flat-square&logo=typescript&logoColor=79c39e)
-![Bash](https://img.shields.io/badge/Bash-383431?style=flat-square&logo=gnubash&logoColor=ead1b5)
-![PyTorch](https://img.shields.io/badge/PyTorch-383431?style=flat-square&logo=pytorch&logoColor=e77843)
-![Docker](https://img.shields.io/badge/Docker-383431?style=flat-square&logo=docker&logoColor=79c39e)
-![Linux](https://img.shields.io/badge/Linux-383431?style=flat-square&logo=linux&logoColor=ead1b5)
-![NVIDIA DGX Spark](https://img.shields.io/badge/NVIDIA-DGX%20Spark-383431?style=flat-square&logo=nvidia&logoColor=79c39e)
-![Model Context Protocol](https://img.shields.io/badge/MCP-mediated%20tools-5c564f?style=flat-square)
-![Full fine-tune](https://img.shields.io/badge/Training-full%20fine--tune-e77843?style=flat-square)
-![LoRA](https://img.shields.io/badge/Training-LoRA-ee9b69?style=flat-square)
-[![AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-5c564f?style=flat-square)](LICENSE)
 
 ## Status
 

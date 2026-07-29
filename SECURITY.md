@@ -2,7 +2,9 @@
 
 ## Release status
 
-No version is released. Do not infer a security guarantee from this scaffold.
+This repository publishes project documentation and evaluation reports. It
+does not yet release a model, dataset, training recipe or mediated runtime.
+Do not infer a security guarantee from the publication.
 
 ## Design boundary
 
@@ -17,5 +19,4 @@ denied outcome permissible.
 ## Reporting
 
 Do not put credentials, private data or an active exploitation procedure in a
-public issue. Use GitHub private vulnerability reporting after the repository
-is published. Until then, no public reporting channel exists.
+public issue. Use GitHub private vulnerability reporting for sensitive reports.

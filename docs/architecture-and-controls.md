@@ -1,26 +1,30 @@
 # Architecture and control layers
 
-## Role workflow
+## Route before inference
 
-The system uses portable roles instead of fixed model names.
+The system routes work before a model starts. It selects the smallest suitable
+model seat for the signed-off task.
 
-![Role workflow and control boundaries](diagrams/02_architecture_and_controls.png)
+![Current routing and control boundaries](diagrams/02_architecture_and_controls.png)
 
 [D2 source](diagrams/02_architecture_and_controls.d2) ·
 [SVG](diagrams/02_architecture_and_controls.svg)
 
-The Planner can answer directly, clarify the request, deny unsafe work or
-record a missing capability. It dispatches only when the task has a declared
-Implementer capability and an approved tool path.
+The Planner and Reviewer are distinct roles, even when one capable model can fill
+both seats at different stages. The Planner clarifies the goal, approves scope and
+routes the signed-off contract. The Reviewer independently checks the resulting
+artifacts and receipts. A reasoning Implementer handles difficult specified work.
+The task-bound fine-tuned Implementer handles clear, bounded changes.
 
-The Implementer follows the contract. It does not increase scope, invent
-authority or claim unobserved results.
+Every Implementer acts through the same mediated execution layer. The contract
+defines permitted paths, actions, tests, stop conditions and evidence. The
+runtime executes approved actions and returns current receipts. Independent
+review decides whether work can advance.
 
-The Reviewer checks current artifacts and fresh receipts. It accepts the work,
-requests a focused correction, replans or escalates.
-
-Planning and review can share a model or use separate models. Specialist
-Implementers retain the same authority, evidence and return-state contracts.
+The [technical report](publications/technical-report.html) documents the v7
+task-bound Implementer fine-tuning experiment. Correct role events increased from
+0% to 90.70% on the common 86-task set, while fixture pass did not improve. The
+mediated multi-role runtime remains planned.
 
 ## Three control layers
 
@@ -33,11 +37,11 @@ Implementers retain the same authority, evidence and return-state contracts.
 Use a learned rule when the rule changes repeated judgement or response shape.
 Use deterministic enforcement when noncompliance cannot be accepted. Some
 requirements belong in both layers: the model learns to request the safe
-operation, and the runtime rejects any unsafe alternative.
+operation, and the runtime rejects an unsafe alternative.
 
 ## Mediated runtime
 
-Model output is untrusted input. A mediated runtime must control:
+A mediated runtime must control:
 
 - repository read and write paths;
 - approved command identifiers and arguments;
@@ -45,35 +49,15 @@ Model output is untrusted input. A mediated runtime must control:
 - credentials, private data and untrusted tool output;
 - external communication and irreversible actions;
 - checkpoints, retries and idempotent recovery;
-- test execution and Definition of Done;
+- test execution and acceptance criteria;
 - immutable receipts and evidence freshness; and
 - cumulative outcomes across a sequence of actions.
 
-An individually acceptable action can contribute to a prohibited outcome.
-The runtime must retain constraints across the complete trajectory.
-
-The mediated runtime is planned. It is not included in the current scaffold.
+The mediated runtime is planned. It is not part of the current public release.
 
 ## Attention-aware communication
 
-Complex work can require detailed analysis. The user does not need every
-working detail at once.
-
-The system separates:
-
-- a durable work record with facts, evidence, assumptions, options, decisions,
-  uncertainty, tests and receipts;
-- a concise visible response that states the outcome, material reasons, risks,
-  blockers and required action; and
-- a disclosure response that retrieves more detail when requested.
-
-ASD-STE100 principles guide the visible response. They do not limit reasoning,
-technical artifacts, list length or necessary detail. A concise response must
-not remove a material risk, blocker, decision or required action.
-
-## Why reasoning remains important
-
-Reasoning lets a model connect requirements, repository state, tools and
-evidence across a task. Globally training the model to be brief could reduce
-that capability. The design therefore constrains the user-facing projection,
-not the model's full problem-solving capacity.
+The system separates a complete durable work record from a concise visible
+response. It can disclose more detail when the user requests it. ASD-STE100
+principles guide visible prose. They do not remove a material risk, blocker,
+decision or required action.

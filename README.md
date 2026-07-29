@@ -4,8 +4,6 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![NVIDIA DGX Spark](https://img.shields.io/badge/NVIDIA-DGX%20Spark-76B900?style=flat-square&logo=nvidia&logoColor=white)
-![Full fine-tune](https://img.shields.io/badge/training-full%20fine--tune-e77843?style=flat-square)
-![LoRA](https://img.shields.io/badge/training-LoRA-ee9b69?style=flat-square)
 [![AGPL-3.0](https://img.shields.io/badge/licence-AGPL--3.0-0f6e69?style=flat-square)](LICENSE)
 
 Local Model Workforce is an evidence-led design for local agentic software
@@ -26,43 +24,54 @@ tests and decisions outside conversation context.
 
 ![Local Model Workforce overview](docs/diagrams/00_workforce_overview.png)
 
-## Status
+## Current publication
 
-This repository is a pre-release method and interface scaffold.
+The repository now includes the first public project evidence set:
 
-Available now:
+- [Technical report](docs/publications/technical-report.html)
+- [Project brief](docs/publications/project-brief.html)
+- [Presentation](docs/publications/presentation.html)
 
-- a concise architecture and evidence method;
+The report documents the v7 task-bound Implementer fine-tuning experiment and
+15 paired HumanEval+ runs. The fine-tune produced a strong role shift and retained
+broad compact coding capability, with measured gains and losses by sub-task type.
+The brief and presentation provide shorter views of the same evidence.
+
+The publication does not include model weights, training data or a runnable
+recipe. Those artifacts will follow only after repository reconciliation,
+final evaluation, licence review and a reproducibility check. The planned
+quantised model will be published on Hugging Face. The corresponding recipe
+and scripts will be published here.
+
+## Available now
+
+- the architecture and evidence method;
 - role-neutral dispatch, policy and receipt schemas;
-- two editable process diagrams; and
-- a release-tree privacy validator.
+- system diagrams;
+- the report, brief and presentation.
 
-Not yet released:
+## Not yet released
 
 - model weights or adapters;
 - training or evaluation data;
-- reproducible training results;
+- the reproducibility recipe and scripts;
 - a mediated MCP runtime; and
-- performance or safety claims.
+- an unrestricted production or safety claim.
 
 Planned work is labelled as planned. A documented design is not evidence that
-the corresponding runtime or model exists.
+the corresponding runtime or model release exists.
 
 ## Public document set
-
-Each document has one scope:
 
 | Document | Authority |
 |---|---|
 | [Architecture and control layers](docs/architecture-and-controls.md) | Roles, routing, communication and enforcement boundaries |
 | [Corpus, training and evaluation](docs/corpus-training-evaluation.md) | Evidence construction, model adaptation and qualification |
-| [Flywheel and extensions](docs/flywheel-and-extensions.md) | Failure admission, red-team work and specialist modules |
-| [Limitations and evidence status](docs/limitations-and-evidence.md) | Current claims, missing evidence and release conditions |
+| [Flywheel and extensions](docs/flywheel-and-extensions.md) | Evidence routing, failure admission and specialist modules |
+| [Limitations and evidence status](docs/limitations-and-evidence.md) | Current evidence, boundaries and planned work |
 
-The README is the public index. The four documents do not override each other.
-The first training recipe will be released with the completed reproducible
-Implementer fine-tune and evaluation. Later recipes and result reports will be
-added only with their runnable artifacts.
+
+The README is the public index. The documents do not override each other.
 
 ## Control principle
 

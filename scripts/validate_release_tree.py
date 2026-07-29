@@ -8,7 +8,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TEXT_SUFFIXES = {".md", ".json", ".jsonl", ".py", ".toml", ".yaml", ".yml", ".txt"}
+TEXT_SUFFIXES = {
+    ".d2", ".html", ".json", ".jsonl", ".md", ".py", ".svg",
+    ".toml", ".txt", ".yaml", ".yml",
+}
 RULES = {
     "concrete_home": re.compile(r"/(?:Users|home)/(?!<user>/|runner/)[A-Za-z0-9._-]+/"),
     "private_tree": re.compile(r"(?:^|[ /`])(?:handovers|reviews|\.state|runs|deprecated|data/candidates)/"),

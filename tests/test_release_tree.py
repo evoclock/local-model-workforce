@@ -1,3 +1,4 @@
+import re
 import subprocess
 import sys
 import unittest
@@ -37,6 +38,62 @@ class ReleaseTreeTest(unittest.TestCase):
             "docs/corpus-training-evaluation.md",
             "docs/flywheel-and-extensions.md",
             "docs/limitations-and-evidence.md",
+        ):
+            self.assertEqual(readme.count(relative), 1)
+            self.assertTrue((self.root / relative).is_file())
+
+
+    def test_publication_set_uses_stable_names(self):
+        publication_dir = self.root / "docs" / "publications"
+        publications = {
+            path.relative_to(publication_dir).as_posix()
+            for path in publication_dir.rglob("*")
+            if path.is_file()
+        }
+        self.assertIn("technical-report.html", publications)
+        self.assertIn("project-brief.html", publications)
+        self.assertIn("presentation.html", publications)
+        self.assertFalse(any("GENERATED_V" in name for name in publications))
+        self.assertFalse(any(re.search(r"(?:^|[_-])v\d+(?:[_.-]|$)", name, re.I) for name in publications))
+
+    def test_publication_local_links_resolve(self):
+        publication_dir = self.root / "docs" / "publications"
+        for document in publication_dir.glob("*.html"):
+            content = document.read_text(errors="replace")
+            for target in re.findall(r'(?:src|href)="([^"]+)"', content):
+                if target.startswith(("http://", "https://", "data:", "#", "mailto:")):
+                    continue
+                self.assertTrue(
+                    (document.parent / target).resolve().is_file(),
+                    f"missing link from {document.name}: {target}",
+                )
+
+    def test_publications_contain_no_private_versioned_filenames(self):
+        for document in (self.root / "docs" / "publications").glob("*.html"):
+            content = document.read_text(errors="replace")
+            self.assertNotIn("GENERATED_V", content)
+            self.assertNotIn("final_fifteen_pair_review_bundle", content)
+            self.assertNotIn("local-assist-model", content)
+
+    def test_diagram_sets_are_complete(self):
+        diagram_dir = self.root / "docs" / "diagrams"
+        expected = {
+            "00_workforce_overview",
+            "01_evidence_to_deployment",
+            "02_architecture_and_controls",
+            "03_executable_evidence_path",
+            "04_evidence_flywheel",
+        }
+        for suffix in (".d2", ".svg", ".png"):
+            actual = {path.stem for path in diagram_dir.glob(f"*{suffix}")}
+            self.assertEqual(actual, expected)
+
+    def test_readme_links_current_publications(self):
+        readme = (self.root / "README.md").read_text()
+        for relative in (
+            "docs/publications/technical-report.html",
+            "docs/publications/project-brief.html",
+            "docs/publications/presentation.html",
         ):
             self.assertEqual(readme.count(relative), 1)
             self.assertTrue((self.root / relative).is_file())

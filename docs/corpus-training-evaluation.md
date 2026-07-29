@@ -19,26 +19,34 @@ An implementation family needs:
 - complete lineage from source to role projections.
 
 Admission rejects fabricated completion, unexecuted patches, unsupported
-authority, repeated patch or negative shapes, target leakage, stale evidence
-and family overlap between splits.
-
-Language is usually a carrier for tools and verification. The corpus should not
-re-teach ordinary syntax unless a measured retention failure requires it.
+authority, target leakage, stale evidence and family overlap between splits.
 
 ## Role projection
 
-One linked family produces separate role views:
+One linked family produces separate role views. The Planner sees task state and
+authority. The Implementer sees the bounded contract and necessary repository
+context. The Reviewer sees current artifacts and executed receipts. Whole
+families stay in one train, validation or frozen-evaluation split.
 
-- the Planner sees task state, available capabilities and authority;
-- the Implementer sees the bounded contract and necessary repository context;
-- the Reviewer sees the resulting artifacts and executed receipts.
+## Current experiment record
 
-No role receives information that reveals a hidden target. Whole families stay
-in one train, validation or frozen-evaluation split.
+The [technical report](publications/technical-report.html) documents the v7
+task-bound Implementer fine-tuning experiment, its controlled four-condition
+evaluation and 15 paired HumanEval+ runs. Correct role events increased from 0%
+to 90.70% on the common 86-task set, but fixture pass did not improve. Across
+HumanEval+, the tuned-minus-base mean was -2.32 percentage points, within the
+programme three-point margin. The [project brief](publications/project-brief.html)
+and [presentation](publications/presentation.html) summarise the same evidence.
 
-## Training record
+The repeated result was task-dependent. Sequence and collection, text processing,
+and numeric computation improved. Parsing and formatting, aggregation, general
+transformation, and searching and ordering define the targeted v8 correction
+work. These publications are evidence reports, not a complete reproduction bundle. The model weights, admitted training corpus, runnable recipe and
+hash-bound release record are not public yet.
 
-A reproducible training run binds:
+## Future reproducibility release
+
+A reproducible training run must bind:
 
 - base model, revision and licence;
 - tokenizer, serialization and chat template;
@@ -50,55 +58,22 @@ A reproducible training run binds:
 - launch authority; and
 - evaluation thresholds.
 
-Full fine-tuning and parameter-efficient adaptation use the same evidence
-standard. Framework changes can alter serialization or execution. They must not
-alter role semantics, family splits, accepted outcomes or evaluation oracles.
-
-No training recipe or result is released in this scaffold.
-
-## First recipe provenance
-
 The first Implementer run uses the
 [DGX Spark Unsloth Lossless Speedup](https://github.com/albond/DGX_Spark_Unsloth_Lossless_Speedup)
-recipe as its upstream baseline.
-
-The released derivative recipe must include:
-
-- the upstream author, repository, licence and exact commit;
-- the unmodified upstream procedure;
-- a machine-readable list of local changes;
-- the reason for each change;
-- the changed files and their hashes;
-- a comparison with the upstream baseline where applicable; and
-- measured effects, failures and limitations.
-
-Do not present an upstream capability as project-authored work. Do not hide a
-local modification inside a copied recipe.
+recipe as its upstream baseline. A future derivative release will record the
+upstream revision, local changes, reasons, hashes, measured effects and
+limitations. It will not present upstream work as project-authored work.
 
 ## Evaluation levels
 
-1. **Implementer:** contract adherence, scope, tool selection, implementation
-   quality, honest state and base-capability retention.
+1. **Implementer:** contract adherence, scope, tools, implementation quality,
+   honest state and base-capability retention.
 2. **Planner and Reviewer:** routing, clarification, contract quality, failure
    attribution, evidence use and independent review.
 3. **Mediated system:** final task success, focused correction, unnecessary
    calls, latency, token cost, energy use and failure ownership.
-4. **Communication:** fidelity between the durable record and the visible
-   response.
+4. **Communication:** fidelity between the durable record and visible response.
 
 Evaluation uses family-disjoint frozen tasks in isolated environments. It
-scores the actual deliverable, not rubric recitation.
-
-The primary comparison holds the task, tools and evaluator constant while
-changing:
-
-- the untouched base model;
-- the fine-tuned model; and
-- the complete mediated system.
-
-An experiment can add a repository-instruction condition when it tests a
-specific claim about advisory instructions. That condition is not part of the
-normal operating workflow.
-
-Results remain provisional until the harness, environment, inputs and result
-manifests reproduce independently.
+scores the actual deliverable, not rubric recitation. The reported results remain bound to the documented harness, inputs and decoding
+settings. No completed LiveCodeBench result is claimed.

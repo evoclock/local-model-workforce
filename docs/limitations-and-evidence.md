@@ -2,75 +2,54 @@
 
 ## Current public evidence
 
-This scaffold demonstrates the intended architecture, evidence standard,
-release boundary and three role-neutral schemas. The release-tree validator
-checks for selected private paths, role aliases, host identifiers and internal
-artifact classes.
+The repository now publishes:
 
-The scaffold does not demonstrate:
+- the architecture and evidence method;
+- three role-neutral schemas;
+- editable and rendered system diagrams;
+- a technical report for the v7 task-bound Implementer fine-tuning experiment;
+- a project brief and presentation; and
+- a release-tree privacy validator.
 
-- a trained or promoted role model;
-- a reproducible training result;
+The report includes controlled role evaluation and 15 paired HumanEval+ runs.
+Correct role events increased from 0% to 90.70% on the common 86-task set, while
+fixture pass did not improve. The HumanEval+ tuned-minus-base mean was -2.32
+percentage points, within the programme three-point margin. The result was
+task-dependent: several sub-task groups improved, while parsing and formatting,
+aggregation, general transformation, and searching and ordering inform v8.
+
+## What is not public yet
+
+The repository does not yet provide:
+
+- model weights or adapters;
+- the admitted training corpus or evaluation inputs;
+- a runnable and independently reproduced recipe;
 - a complete mediated runtime;
 - end-to-end Planner–Implementer–Reviewer performance;
 - a security qualification or penetration test;
-- a released dataset;
 - model-family portability; or
-- deployment throughput, latency, memory, energy or cost.
+- an unrestricted deployment claim.
 
 ## Method limitations
 
 - Fine-tuning does not make model output deterministic or authorized.
 - A model can follow a contract and still produce incorrect code.
-- Synthetic fixtures can reward shortcuts when the oracle is weak.
 - Family-disjoint splits reduce semantic leakage but do not eliminate it.
 - Learned preferences can reduce flexibility outside trained coverage.
 - Deterministic controls cost engineering effort and can become too narrow.
 - Repeated tuning can regress base capability without retention tests.
 - A schema-valid proposal can still be unsafe or semantically wrong.
-- Public synthetic examples cannot prove private deployment requirements.
-
-## Release evidence
-
-Add a recipe or result only when the release includes:
-
-- immutable inputs and revisions;
-- a runnable procedure;
-- checkpoint and resume behaviour;
-- deterministic gates;
-- frozen evaluation;
-- raw or aggregate evidence appropriate for publication;
-- licence and provenance review;
-- resource measurements where claimed; and
-- an explicit promotion, rejection or limitation statement.
 
 ## Planned sequence
 
-1. Release a small synthetic executable example set and its validators.
-2. Reproduce an Implementer full fine-tune and frozen evaluation, then release
-   the pinned recipe and result record.
-3. Add the Planner and Reviewer adaptation and routing evaluation.
-4. Implement and test the mediated runtime.
-5. Run the complete controlled comparison.
-6. Port the frozen semantic corpus to other qualified model and framework
-   targets.
-7. Add specialist modules and a family-disjoint red-team suite.
+1. Complete private-repository reconciliation and final evaluation.
+2. Complete v8 admission and family-disjoint retesting.
+3. Publish the selected quantised model and model card on Hugging Face.
+4. Publish the bound recipe, scripts and reproducibility record here.
+5. Implement and test the mediated runtime.
+6. Add Planner and Reviewer adaptation and routing evaluation.
+7. Extend the consumer-neutral flywheel and specialist modules.
 
-The sequence can change when evidence requires it. Planned work must remain
+The sequence can change when evidence requires it. Planned work remains
 labelled as planned.
-
-## Model targets
-
-| Role | Method | Current target status |
-|---|---|---|
-| Implementer | Full fine-tune | Qwen3.5-4B-Base is the immediate target |
-| Implementer | Full fine-tune | NVIDIA Nemotron 3 Nano 4B BF16 |
-| Implementer | Full fine-tune | Granite 4.0 H Tiny Base |
-| Implementer | Full fine-tune | Gemma |
-| Planner/Reviewer | LoRA | Qwen3.6-35B-A3B |
-| Planner/Reviewer | LoRA | NVIDIA Nemotron 3 Nano 30B-A3B Base BF16 |
-
-Other 4B–7B Implementers and 27B–35B Planner/Reviewer models require the same
-base-checkpoint, licence, training-stack, resource and frozen-evaluation gates.
-A model family does not become a target only because it has a suitable
-parameter count.

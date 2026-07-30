@@ -84,7 +84,17 @@ class ReleaseTreeTest(unittest.TestCase):
             "03_executable_evidence_path",
             "04_evidence_flywheel",
         }
-        for suffix in (".d2", ".svg", ".png"):
+        source_stems = {
+            path.stem
+            for suffix in (".d2", ".py")
+            for path in diagram_dir.glob(f"*{suffix}")
+        }
+        self.assertEqual(source_stems, expected)
+        self.assertEqual(
+            len(list(diagram_dir.glob("*.d2"))) + len(list(diagram_dir.glob("*.py"))),
+            len(expected),
+        )
+        for suffix in (".svg", ".png"):
             actual = {path.stem for path in diagram_dir.glob(f"*{suffix}")}
             self.assertEqual(actual, expected)
 

@@ -6,5 +6,8 @@
 - [Executable evidence path](03_executable_evidence_path.png)
 - [Consumer-neutral evidence flywheel](04_evidence_flywheel.png)
 
-Each diagram has an editable D2 source and SVG and PNG exports. The surrounding
-document prose defines its status and evidence boundary.
+Each diagram has an editable source and SVG and PNG exports. The workforce
+overview uses a deterministic Python renderer so its ports and corridors remain
+fixed. It also has a self-contained local HTML viewer for full-size inspection.
+The other diagrams use D2. The surrounding document prose defines each diagram's
+status and evidence boundary.

@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ARTICLE_DIR = ROOT / "docs" / "articles"
 ASSET_DIR = ARTICLE_DIR / "source_assets"
 OUTPUT = ARTICLE_DIR / "local-multi-model-workforce.html"
+LANDING = ROOT / "docs" / "index.html"
 
 ASSETS = {
     "workforce": ROOT / "docs" / "diagrams" / "00_workforce_overview.png",
@@ -933,21 +934,76 @@ blockquote {{
 """
 
 
+def build_landing() -> str:
+    """Build the stable GitHub Pages entry point for the article."""
+    article_url = "articles/local-multi-model-workforce.html"
+    public_url = "https://evoclock.github.io/local-model-workforce/"
+    image_url = (
+        "https://evoclock.github.io/local-model-workforce/"
+        "diagrams/00_workforce_overview.png"
+    )
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why I Started Building a Local Multi-Model Workforce</title>
+<meta name="description" content="A self-directed local multi-model workforce,
+its evidence, architecture, products, and the emerging professional role around
+it.">
+<link rel="canonical" href="{public_url}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why I Started Building a Local Multi-Model Workforce">
+<meta property="og:description" content="The evidence, architecture, products,
+and emerging professional role behind a supervised local model workforce.">
+<meta property="og:url" content="{public_url}">
+<meta property="og:image" content="{image_url}">
+<meta http-equiv="refresh" content="0; url={article_url}">
+<style>
+body {{
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #171716;
+  color: #ead1b5;
+  font: 18px/1.5 system-ui, sans-serif;
+}}
+a {{ color: #79c39e; }}
+</style>
+</head>
+<body>
+<p>Opening the article. <a href="{article_url}">Continue if needed.</a></p>
+</body>
+</html>
+"""
+
+
 def main() -> int:
-    """Write the article, or verify that the committed output is current."""
+    """Write the public pages, or verify that committed outputs are current."""
     generated = build()
+    landing = build_landing()
     if sys.argv[1:] == ["--check"]:
+        stale = []
         if not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != generated:
-            print(f"STALE: regenerate {OUTPUT}", file=sys.stderr)
+            stale.append(OUTPUT)
+        if not LANDING.is_file() or LANDING.read_text(encoding="utf-8") != landing:
+            stale.append(LANDING)
+        if stale:
+            for path in stale:
+                print(f"STALE: regenerate {path}", file=sys.stderr)
             return 1
         print(f"CURRENT: {OUTPUT}")
+        print(f"CURRENT: {LANDING}")
         return 0
     if sys.argv[1:]:
         print("usage: build_longform_article.py [--check]", file=sys.stderr)
         return 2
     ARTICLE_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(generated, encoding="utf-8")
+    LANDING.write_text(landing, encoding="utf-8")
     print(OUTPUT)
+    print(LANDING)
     return 0
 
 

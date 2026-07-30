@@ -32,6 +32,7 @@ class LongformArticleTest(unittest.TestCase):
             / "articles"
             / "local-multi-model-workforce.html"
         )
+        self.landing = self.root / "docs" / "index.html"
 
     def test_generator_reproduces_self_contained_article(self):
         result = subprocess.run(
@@ -42,6 +43,7 @@ class LongformArticleTest(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue(self.output.is_file())
+        self.assertTrue(self.landing.is_file())
 
         parser = ArticleParser()
         article = self.output.read_text()
@@ -58,6 +60,17 @@ class LongformArticleTest(unittest.TestCase):
         )
         self.assertTrue(all(image.get("alt", "").strip() for image in parser.images))
         self.assertTrue(all(link for link in parser.links))
+
+        landing = self.landing.read_text()
+        self.assertIn(
+            'content="0; url=articles/local-multi-model-workforce.html"',
+            landing,
+        )
+        self.assertIn(
+            'content="https://evoclock.github.io/local-model-workforce/"',
+            landing,
+        )
+        self.assertIn('property="og:image"', landing)
 
     def test_article_preserves_approved_claim_boundaries(self):
         article = self.output.read_text()

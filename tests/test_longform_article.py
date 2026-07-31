@@ -80,6 +80,9 @@ class LongformArticleTest(unittest.TestCase):
         self.assertIn("LLM fine-tuning", landing)
         self.assertIn("Multi-model systems", landing)
         self.assertNotIn('http-equiv="refresh"', landing)
+        self.assertIn("--coal: #151719", landing)
+        self.assertNotIn("#ead1b5", landing)
+        self.assertNotIn("#f7f0df", landing)
 
     def test_article_preserves_approved_claim_boundaries(self):
         article = self.output.read_text()

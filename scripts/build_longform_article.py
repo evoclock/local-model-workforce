@@ -1004,10 +1004,10 @@ publications from the Local Model Workforce.">
 <meta property="og:image" content="{image_url}">
 <style>
 :root {{
-  --coal: #171716;
-  --panel: #262321;
-  --paper: #f7f0df;
-  --cream: #ead1b5;
+  --coal: #151719;
+  --panel: #222629;
+  --paper: #f0f2f1;
+  --muted: #b8c0bd;
   --orange: #e77843;
   --sage: #79c39e;
   --teal: #3fbec1;
@@ -1017,9 +1017,9 @@ body {{
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 0%, rgba(231,120,67,.20), transparent 34rem),
+    radial-gradient(circle at 15% 0%, rgba(63,190,193,.12), transparent 34rem),
     var(--coal);
-  color: var(--cream);
+  color: var(--muted);
   font: 18px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
 }}
@@ -1046,7 +1046,7 @@ h1 {{
   line-height: 1.02;
 }}
 .intro {{
-  color: var(--cream);
+  color: var(--muted);
   font-size: clamp(1.05rem, 2vw, 1.3rem);
   max-width: 720px;
 }}
@@ -1057,7 +1057,7 @@ h1 {{
 }}
 .card {{
   overflow: hidden;
-  border: 1px solid rgba(234,209,181,.22);
+  border: 1px solid rgba(240,242,241,.16);
   border-radius: 18px;
   background: var(--panel);
   box-shadow: 0 18px 48px rgba(0,0,0,.22);
@@ -1090,8 +1090,8 @@ a {{ color: inherit; }}
 footer {{
   margin-top: 2.5rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(234,209,181,.18);
-  color: rgba(234,209,181,.76);
+  border-top: 1px solid rgba(240,242,241,.14);
+  color: var(--muted);
 }}
 footer a {{ color: var(--sage); }}
 @media (max-width: 760px) {{

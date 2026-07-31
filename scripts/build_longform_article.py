@@ -15,6 +15,37 @@ ARTICLE_DIR = ROOT / "docs" / "articles"
 ASSET_DIR = ARTICLE_DIR / "source_assets"
 OUTPUT = ARTICLE_DIR / "local-multi-model-workforce.html"
 LANDING = ROOT / "docs" / "index.html"
+PUBLICATIONS = (
+    {
+        "kind": "Multi-model systems",
+        "date": "30 July 2026",
+        "title": (
+            "Why I Started Building a Local Multi-Model Workforce, and Why "
+            "the Industry May Be Heading There Too"
+        ),
+        "description": (
+            "How a self-directed effort grew into a supervised multi-model "
+            "architecture, a set of working products, and an emerging "
+            "professional direction."
+        ),
+        "href": "articles/local-multi-model-workforce.html",
+        "image": "diagrams/00_workforce_overview.png",
+        "alt": "Local model workforce roles, services and control boundaries",
+    },
+    {
+        "kind": "LLM fine-tuning",
+        "date": "29 July 2026",
+        "title": "Building a 4B Local Implementer",
+        "description": (
+            "A concise account of the task-bound Implementer, its behavioural "
+            "adaptation, repeated coding evaluation, evidence flywheel and "
+            "next steps."
+        ),
+        "href": "publications/project-brief.html",
+        "image": "publications/assets/task-type-effects-and-examples.svg",
+        "alt": "Task-type effects and representative coding examples",
+    },
+)
 
 ASSETS = {
     "workforce": ROOT / "docs" / "diagrams" / "00_workforce_overview.png",
@@ -935,45 +966,160 @@ blockquote {{
 
 
 def build_landing() -> str:
-    """Build the stable GitHub Pages entry point for the article."""
-    article_url = "articles/local-multi-model-workforce.html"
+    """Build the stable GitHub Pages publication index."""
     public_url = "https://evoclock.github.io/local-model-workforce/"
     image_url = (
         "https://evoclock.github.io/local-model-workforce/"
         "diagrams/00_workforce_overview.png"
+    )
+    cards = "\n".join(
+        f"""<article class="card">
+  <a class="art" href="{html.escape(item["href"])}">
+    <img src="{html.escape(item["image"])}" alt="{html.escape(item["alt"])}"
+      loading="lazy">
+  </a>
+  <div class="card-body">
+    <p class="meta">{html.escape(item["kind"])} · {html.escape(item["date"])}</p>
+    <h2><a href="{html.escape(item["href"])}">{html.escape(item["title"])}</a></h2>
+    <p>{html.escape(item["description"])}</p>
+    <p><a class="read" href="{html.escape(item["href"])}">Read this piece →</a></p>
+  </div>
+</article>"""
+        for item in PUBLICATIONS
     )
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Why I Started Building a Local Multi-Model Workforce</title>
-<meta name="description" content="A self-directed local multi-model workforce,
-its evidence, architecture, products, and the emerging professional role around
-it.">
+<title>Local Model Workforce | Writing and Evidence</title>
+<meta name="description" content="Writing, evidence and project publications
+from the Local Model Workforce.">
 <link rel="canonical" href="{public_url}">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Why I Started Building a Local Multi-Model Workforce">
-<meta property="og:description" content="The evidence, architecture, products,
-and emerging professional role behind a supervised local model workforce.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Local Model Workforce | Writing and Evidence">
+<meta property="og:description" content="Writing, evidence and project
+publications from the Local Model Workforce.">
 <meta property="og:url" content="{public_url}">
 <meta property="og:image" content="{image_url}">
-<meta http-equiv="refresh" content="0; url={article_url}">
 <style>
+:root {{
+  --coal: #171716;
+  --panel: #262321;
+  --paper: #f7f0df;
+  --cream: #ead1b5;
+  --orange: #e77843;
+  --sage: #79c39e;
+  --teal: #3fbec1;
+}}
+* {{ box-sizing: border-box; }}
 body {{
   margin: 0;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: #171716;
-  color: #ead1b5;
-  font: 18px/1.5 system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(231,120,67,.20), transparent 34rem),
+    var(--coal);
+  color: var(--cream);
+  font: 18px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }}
-a {{ color: #79c39e; }}
+main {{
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4.5rem 0;
+}}
+header {{
+  max-width: 850px;
+  margin-bottom: 2.5rem;
+}}
+.eyebrow, .meta {{
+  color: var(--sage);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}}
+h1 {{
+  margin: .35rem 0 .8rem;
+  color: var(--paper);
+  font-size: clamp(2.3rem, 6vw, 4.8rem);
+  line-height: 1.02;
+}}
+.intro {{
+  color: var(--cream);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  max-width: 720px;
+}}
+.grid {{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}}
+.card {{
+  overflow: hidden;
+  border: 1px solid rgba(234,209,181,.22);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 18px 48px rgba(0,0,0,.22);
+}}
+.art {{
+  display: block;
+  height: 270px;
+  background: #111;
+}}
+.art img {{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}}
+.card-body {{ padding: 1.5rem; }}
+.card h2 {{
+  margin: .3rem 0 .65rem;
+  color: var(--paper);
+  font-size: 1.55rem;
+  line-height: 1.18;
+}}
+.card p {{ margin: .5rem 0; }}
+a {{ color: inherit; }}
+.card h2 a {{ text-decoration: none; }}
+.card h2 a:hover, .read:hover {{ color: var(--teal); }}
+.read {{
+  color: var(--orange);
+  font-weight: 800;
+}}
+footer {{
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(234,209,181,.18);
+  color: rgba(234,209,181,.76);
+}}
+footer a {{ color: var(--sage); }}
+@media (max-width: 760px) {{
+  main {{ padding: 2.5rem 0; }}
+  .grid {{ grid-template-columns: 1fr; }}
+  .art {{ height: 230px; }}
+}}
 </style>
 </head>
 <body>
-<p>Opening the article. <a href="{article_url}">Continue if needed.</a></p>
+<main>
+  <header>
+    <p class="eyebrow">Local models · institutional knowledge · governed work</p>
+    <h1>Writing and evidence</h1>
+    <p class="intro">Long-form writing, project briefs and reproducible
+    evidence from the Local Model Workforce.</p>
+  </header>
+  <section class="grid" aria-label="Published writing">
+    {cards}
+  </section>
+  <footer>
+    <p>Built and maintained by
+    <a href="https://github.com/evoclock">Julen Gamboa</a>.
+    Source and project material are available in the
+    <a href="https://github.com/evoclock/local-model-workforce">public
+    repository</a>.</p>
+  </footer>
+</main>
 </body>
 </html>
 """

@@ -63,14 +63,23 @@ class LongformArticleTest(unittest.TestCase):
 
         landing = self.landing.read_text()
         self.assertIn(
-            'content="0; url=articles/local-multi-model-workforce.html"',
-            landing,
-        )
-        self.assertIn(
             'content="https://evoclock.github.io/local-model-workforce/"',
             landing,
         )
         self.assertIn('property="og:image"', landing)
+        self.assertIn("Writing and evidence", landing)
+        self.assertIn(
+            'href="articles/local-multi-model-workforce.html"',
+            landing,
+        )
+        self.assertIn(
+            'href="publications/project-brief.html"',
+            landing,
+        )
+        self.assertIn("Building a 4B Local Implementer", landing)
+        self.assertIn("LLM fine-tuning", landing)
+        self.assertIn("Multi-model systems", landing)
+        self.assertNotIn('http-equiv="refresh"', landing)
 
     def test_article_preserves_approved_claim_boundaries(self):
         article = self.output.read_text()

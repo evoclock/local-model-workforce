@@ -46,7 +46,10 @@ and scripts will be published here.
 ## Available now
 
 - the architecture and evidence method;
-- role-neutral dispatch, policy and receipt schemas;
+- role-neutral dispatch, policy, execution-receipt and governed-evidence schemas;
+  the governed envelope retains one canonical strict receipt and uses conditional
+  correction, divergence, remedy and lineage fields;
+- a dependency-free validator for the governed evidence envelope;
 - system diagrams;
 - the report, brief and presentation.
 

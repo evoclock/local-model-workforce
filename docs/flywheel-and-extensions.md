@@ -4,6 +4,11 @@
 
 The flywheel does not train automatically from raw incidents. It preserves one
 governed evidence record and routes it to the consumer that can use it.
+The proposed envelope is `schemas/evidence_record.v1.json`; it keeps one strict
+`execution_receipt.v1.json` as a sibling and is checked by
+`scripts/validate_evidence_record.py`. The envelope keeps the receipt hash and
+receipt together, while corrections, divergence, remedies and lineage are
+conditional fields emitted only when they apply.
 
 ![Consumer-neutral evidence flywheel](diagrams/04_evidence_flywheel.png)
 

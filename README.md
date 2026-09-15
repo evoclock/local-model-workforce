@@ -46,7 +46,10 @@ and scripts will be published here.
 ## Available now
 
 - the architecture and evidence method;
-- role-neutral dispatch, policy and receipt schemas;
+- role-neutral dispatch, policy, execution-receipt and governed-evidence schemas;
+  the governed envelope retains one canonical strict receipt and uses conditional
+  correction, divergence, remedy and lineage fields;
+- a dependency-free validator for the governed evidence envelope;
 - system diagrams;
 - the report, brief and presentation.
 
@@ -82,5 +85,8 @@ The system uses each layer for the problem it can solve.
 ## Licence
 
 Project-authored source and documentation use
-[AGPL-3.0-only](LICENSE). Models, datasets and third-party components retain
-their own licences.
+[AGPL-3.0-only](LICENSE). Commercial use, forks, and substantial modifications
+are permitted when all AGPL and attribution obligations are followed. A
+separate commercial licence is available for organisations requiring
+proprietary modifications or other terms incompatible with the AGPL. Models,
+datasets and third-party components retain their own licences.

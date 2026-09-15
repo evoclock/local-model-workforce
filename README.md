@@ -85,5 +85,8 @@ The system uses each layer for the problem it can solve.
 ## Licence
 
 Project-authored source and documentation use
-[AGPL-3.0-only](LICENSE). Models, datasets and third-party components retain
-their own licences.
+[AGPL-3.0-only](LICENSE). Commercial use, forks, and substantial modifications
+are permitted when all AGPL and attribution obligations are followed. A
+separate commercial licence is available for organisations requiring
+proprietary modifications or other terms incompatible with the AGPL. Models,
+datasets and third-party components retain their own licences.
